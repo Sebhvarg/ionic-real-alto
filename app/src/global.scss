@@ -36,8 +36,53 @@
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import "@ionic/angular/css/palettes/dark.system.css";
 
-/* AR View Transparent Background Override */
-body.ar-active, body.ar-active ion-app, body.ar-active ion-router-outlet, body.ar-active ion-content, body.ar-active .ion-page {
+/* AR View Transparent Background and Fullscreen overrides */
+body.ar-active, 
+body.ar-active ion-app, 
+body.ar-active ion-router-outlet, 
+body.ar-active ion-content, 
+body.ar-active .ion-page {
   background: transparent !important;
   --ion-background-color: transparent !important;
+}
+
+body.ar-active ion-split-pane {
+  --side-width: 0px !important;
+  --side-min-width: 0px !important;
+  --side-max-width: 0px !important;
+}
+
+body.ar-active ion-menu {
+  display: none !important;
+}
+
+body.ar-active #main-content {
+  margin-left: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  flex: 1 1 100% !important;
+}
+
+/* Forzar al video de la cámara y al canvas 3D a ocupar toda la pantalla */
+body.ar-active video {
+  width: 100vw !important;
+  height: 100vh !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  z-index: -100 !important;
+  object-fit: cover !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+body.ar-active .a-canvas {
+  width: 100vw !important;
+  height: 100vh !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
