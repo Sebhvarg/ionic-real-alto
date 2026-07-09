@@ -1,0 +1,11 @@
+{
+  "name": "ionic-real-alto",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Sebhvarg/ionic-real-alto.git",
+  "author": "Sebhvarg <sebhvarg@espol.edu.ec>",
+  "license": "MIT",
+  "dependencies": {
+    "@ionic/cli": "^7.2.1"
+  }
+}
