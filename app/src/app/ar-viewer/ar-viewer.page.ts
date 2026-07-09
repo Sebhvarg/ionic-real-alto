@@ -1,4 +1,5 @@
 import { Component, OnInit, OnDestroy, NgZone } from '@angular/core';
+import { MenuController } from '@ionic/angular';
 
 declare var AFRAME: any;
 
@@ -98,7 +99,7 @@ export class ArViewerPage implements OnInit, OnDestroy {
   progress: number = 0;
   isImageVisible: boolean = false;
 
-  constructor(private ngZone: NgZone) { }
+  constructor(private ngZone: NgZone, private menuController: MenuController) { }
 
   ngOnInit() {
     console.log("Angular: ArViewerPage inicializado.");
@@ -116,10 +117,14 @@ export class ArViewerPage implements OnInit, OnDestroy {
   }
 
   ionViewWillEnter() {
+    // Deshabilitar el menú lateral en esta pantalla para evitar que se quede abierto o se desplace
+    this.menuController.enable(false);
     document.body.classList.add('ar-active');
   }
 
   ionViewWillLeave() {
+    // Re-habilitar el menú lateral al salir
+    this.menuController.enable(true);
     document.body.classList.remove('ar-active');
   }
 
