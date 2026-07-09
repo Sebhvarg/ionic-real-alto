@@ -10,6 +10,10 @@ const routes: Routes = [
   {
     path: 'folder/:id',
     loadChildren: () => import('./folder/folder.module').then( m => m.FolderPageModule)
+  },
+  {
+    path: 'ar-viewer',
+    loadChildren: () => import('./ar-viewer/ar-viewer.module').then( m => m.ArViewerPageModule)
   }
 ];
 

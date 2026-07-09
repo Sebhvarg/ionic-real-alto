@@ -35,3 +35,9 @@
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import "@ionic/angular/css/palettes/dark.system.css";
+
+/* AR View Transparent Background Override */
+body.ar-active, body.ar-active ion-app, body.ar-active ion-router-outlet, body.ar-active ion-content, body.ar-active .ion-page {
+  background: transparent !important;
+  --ion-background-color: transparent !important;
+}

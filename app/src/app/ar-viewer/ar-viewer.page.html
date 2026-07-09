@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/folder/Inbox"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Visor Web AR</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <!-- UI Superpuesta para la barra de progreso (Usando slot="fixed" de Ionic para asegurar que flote encima) -->
+  <div class="ar-overlay-ui" slot="fixed" *ngIf="progress < 1">
+    <div class="instruction-box">
+      <p>¡Sube el celular para revelar!</p>
+      <ion-progress-bar [value]="progress"></ion-progress-bar>
+    </div>
+  </div>
+
+  <!-- Escena A-Frame embebida (embedded) para no romper estilos de Ionic -->
+  <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false;" style="height: 100vh; width: 100vw;">
+    
+    <!-- Usamos el marcador Hiro por defecto -->
+    <a-marker preset="hiro">
+      <!-- Caja de depuración roja semi-transparente para verificar que el motor 3D funciona -->
+      <a-box position="0 0.2 0" material="color: red; opacity: 0.4" scale="0.5 0.5 0.5"></a-box>
+
+      <!-- Imagen PNG que se irá revelando. Le agregamos nuestro componente custom "reveal-on-lift" -->
+      <a-image src="assets/choza.png"
+               position="0 0.5 0"
+               rotation="-90 0 0"
+               scale="3 3 3"
+               material="transparent: true; opacity: 0"
+               reveal-on-lift="liftRange: 1.5">
+      </a-image>
+      
+    </a-marker>
+    
+    <a-entity camera></a-entity>
+  </a-scene>
+</ion-content>
