@@ -30,7 +30,7 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: 'yarn'
           cache-dependency-path: app/yarn.lock
 
@@ -45,7 +45,7 @@ jobs:
           yarn run build --base-href /ionic-real-alto/
 
       # Para evitar problemas con el router de Angular en GitHub Pages (404 al recargar)
-      # creamos una copia de index.html llamada 404.html
+
       - name: Copy index.html to 404.html
         run: cp app/www/index.html app/www/404.html
 
